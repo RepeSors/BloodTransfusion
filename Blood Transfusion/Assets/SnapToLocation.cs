@@ -31,7 +31,7 @@ public class SnapToLocation : MonoBehaviour
 
     void SnapObject()
     {
-        if (grabbed == false && insideSnapZone == true)
+        if (!grabbed && insideSnapZone)
         {
             KiinnikeOsa.gameObject.transform.position = transform.position;
             KiinnikeOsa.gameObject.transform.rotation = SnapRotationReference.transform.rotation;

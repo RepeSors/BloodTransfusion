@@ -22,14 +22,14 @@ public class SnapObject : MonoBehaviour
 
         objectSnapped = SnapLocation.GetComponent<SnapToLocation>().Snapped;
 
-        if (objectSnapped == true)
+        if (objectSnapped)
         {
             GetComponent<Rigidbody>().isKinematic = true;
             transform.SetParent(kiinnike.transform);
             isSnapped = true;
         }
 
-        if (objectSnapped == false && grabbed == false)
+        if (!objectSnapped && !grabbed)
         {
             GetComponent<Rigidbody>().isKinematic = false;
         }
