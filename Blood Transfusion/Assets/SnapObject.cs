@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using OculusSampleFramework;
+
 
 public class SnapObject : MonoBehaviour
 {
@@ -19,7 +19,7 @@ public class SnapObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        grabbed = GetComponent<OVRGrabbable>().isGrabbed;
+        grabbed = GetComponent<GrabDetection>().isGrabbed;
 
         objectSnapped = SnapLocation.GetComponent<SnapToLocation>().Snapped;
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class SnapToLocation : MonoBehaviour
 {
@@ -43,7 +44,7 @@ public class SnapToLocation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        grabbed = KiinnikeOsa.GetComponent<OVRGrabbable>().isGrabbed;
+        grabbed = KiinnikeOsa.GetComponent<GrabDetection>().isGrabbed;
         SnapObject();
     }
 }
