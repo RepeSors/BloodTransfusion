@@ -913,7 +913,6 @@ GameObject:
   - component: {fileID: 192937178}
   - component: {fileID: 192937177}
   - component: {fileID: 192937176}
-  - component: {fileID: 192937175}
   - component: {fileID: 192937182}
   - component: {fileID: 192937181}
   - component: {fileID: 192937174}
@@ -939,22 +938,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _grabbable: {fileID: 192937182}
   _rigidbody: {fileID: 192937176}
-  _scaleMassWithSize: 1
---- !u!114 &192937175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 192937173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 976d616e7c7881e4fa86eaecf726c43f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SnapLocation: {fileID: 1935921743}
-  kiinnike: {fileID: 604768882}
-  isSnapped: 0
+  _scaleMassWithSize: 0
 --- !u!54 &192937176
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -965,7 +949,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 0.1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1141,8 +1125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e813a982b84544f9715e2b75f0311f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SnapLocation: {fileID: 1935921743}
   isGrabbed: 0
-  insideSnapZone: 0
+  objectSnapped: 0
   rb: {fileID: 192937176}
 --- !u!114 &195495139 stripped
 MonoBehaviour:
@@ -5158,8 +5143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e813a982b84544f9715e2b75f0311f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SnapLocation: {fileID: 0}
   isGrabbed: 0
-  insideSnapZone: 0
+  objectSnapped: 0
   rb: {fileID: 1065974789}
 --- !u!54 &1065974789
 Rigidbody:
