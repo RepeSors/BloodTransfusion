@@ -7,8 +7,14 @@ using TMPro;
 
 public class ScoreSystem : MonoBehaviour
 {
+    public static ScoreSystem instance;
     public int score { get; private set; } = 0;
     [SerializeField] private TextMeshProUGUI text;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {

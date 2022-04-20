@@ -11,7 +11,8 @@ public class WaterFlowScript : MonoBehaviour
     public void WaterGo()
     {
         wateR.SetActive(true);
-    }
+        isActivated = true;
+}
 
     public void WaterOff()
     {
