@@ -1125,9 +1125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e813a982b84544f9715e2b75f0311f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SnapLocation: {fileID: 1935921743}
   isGrabbed: 0
-  objectSnapped: 0
+  insideSnapZone: 0
   rb: {fileID: 192937176}
 --- !u!114 &195495139 stripped
 MonoBehaviour:
@@ -5143,9 +5142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e813a982b84544f9715e2b75f0311f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SnapLocation: {fileID: 0}
   isGrabbed: 0
-  objectSnapped: 0
+  insideSnapZone: 0
   rb: {fileID: 1065974789}
 --- !u!54 &1065974789
 Rigidbody:
