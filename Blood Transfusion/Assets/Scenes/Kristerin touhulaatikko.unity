@@ -9808,7 +9808,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: e3ae06a3979f53046aa05330d69de1fa, type: 3}
+          m_ObjectArgument: {fileID: 2100000, guid: 5e53c7a8c2e563c4c90a8fa620eebc2c, type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -26478,10 +26478,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1345914605}
     m_Modifications:
-    - target: {fileID: 1829333679157806064, guid: d27ac1ffd4cdd7c40a39dcfa6012355c, type: 3}
-      propertyPath: _remapCurve.m_Curve.Array.data[0].time
-      value: 0.20023727
-      objectReference: {fileID: 0}
     - target: {fileID: 1829333679157806064, guid: d27ac1ffd4cdd7c40a39dcfa6012355c, type: 3}
       propertyPath: _remapCurve.m_Curve.Array.data[0].value
       value: 1
