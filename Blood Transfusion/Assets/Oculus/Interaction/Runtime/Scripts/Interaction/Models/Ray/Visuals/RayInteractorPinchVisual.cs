@@ -123,7 +123,7 @@ namespace Oculus.Interaction
 
             thisTransform.position = midIndexThumb;
             thisTransform.rotation = Quaternion.LookRotation(deltaTarget, Vector3.up);
-            thisTransform.localScale = Vector3.one * Hand.Scale;
+            thisTransform.localScale = new Vector3(1 * Hand.Scale, 1 * Hand.Scale, 1 * Hand.Scale * 5f);
 
             var mappedPinchStrength = _remapCurve.Evaluate(Hand.GetFingerPinchStrength(HandFinger.Index));
 

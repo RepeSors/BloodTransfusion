@@ -29,6 +29,7 @@ public class TeleporttausScribu : MonoBehaviour
     public void Teleporttausrecovery()
     {
         player_rig.transform.position = destination_recovery.transform.position;
+        player_rig.transform.rotation = destination_recovery.transform.rotation;
     }
 
     public void Teleporttauskolme()
