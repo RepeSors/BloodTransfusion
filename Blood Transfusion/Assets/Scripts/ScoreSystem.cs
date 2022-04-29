@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using System;
 
 public class ScoreSystem : MonoBehaviour
 {
@@ -14,28 +14,42 @@ public class ScoreSystem : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        GameManager.OnGameStateChanged += GameManager_GameStarted;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.OnGameStateChanged -= GameManager_GameStarted;
+    }
+
+    private void GameManager_GameStarted(GameManager.GameState state)
+    {
+        ResetScore(state == GameManager.GameState.GameStart);
+        DisplayScore(state == GameManager.GameState.GameStart);
     }
 
     private void Start()
     {
         GameManager.instance.scoreIncremented += IncrementScore;
         GameManager.instance.scoreDecreased += DecreaseScore;
-        GameManager.instance.gameStarted += DisplayScore;
+    }
+
+    void ResetScore(bool state)
+    {
+        score = 0;
     }
 
     void IncrementScore()
     {
         score++;
-        DisplayScore();
     }
 
     void DecreaseScore()
     {
         score--;
-        DisplayScore();
     }
 
-    private void DisplayScore()
+    void DisplayScore(bool state)
     {
         text.text = score.ToString();
     }
