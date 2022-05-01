@@ -8,48 +8,34 @@ using System;
 public class ScoreSystem : MonoBehaviour
 {
     public static ScoreSystem instance;
-    public int score { get; private set; } = 0;
+    public static int score { get; set; } = 0;
     [SerializeField] private TextMeshProUGUI text;
 
     private void Awake()
     {
         instance = this;
-        GameManager.OnGameStateChanged += GameManager_GameStarted;
-    }
+        
+    }  
 
-    private void OnDestroy()
-    {
-        GameManager.OnGameStateChanged -= GameManager_GameStarted;
-    }
-
-    private void GameManager_GameStarted(GameManager.GameState state)
-    {
-        ResetScore(state == GameManager.GameState.GameStart);
-        DisplayScore(state == GameManager.GameState.GameStart);
-    }
-
-    private void Start()
-    {
-        GameManager.instance.scoreIncremented += IncrementScore;
-        GameManager.instance.scoreDecreased += DecreaseScore;
-    }
-
-    void ResetScore(bool state)
+    public void ResetScore()
     {
         score = 0;
+        DisplayScore();
     }
 
-    void IncrementScore()
+    public void IncrementScore()
     {
         score++;
+        DisplayScore();
     }
 
-    void DecreaseScore()
+    public void DecreaseScore()
     {
         score--;
+        DisplayScore();
     }
 
-    void DisplayScore(bool state)
+    public void DisplayScore()
     {
         text.text = score.ToString();
     }

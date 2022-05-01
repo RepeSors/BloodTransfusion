@@ -5,16 +5,17 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private TeleporttausScribu tp;
     [SerializeField] WaterFlowScript checkWaterFlow;
     [SerializeField] PlatformCollision hasCollided;
     public static GameManager instance;
 
     public GameState State;
+    public GameState nextState;
 
-    public event Action scoreIncremented, scoreDecreased;
     public static event Action<GameState> OnGameStateChanged;
-    bool isPlaying;
-    bool handsWashed;
+    public bool hasWashed;
+    public bool checkedPC;
     bool platformDisinfected;
 
     private void Awake()
@@ -43,88 +44,93 @@ public class GameManager : MonoBehaviour
                 HandleWashing();
                 break;
             case GameState.CheckPC:
+                HandlePC();
                 break;
             case GameState.Disinfect:
+                HandleDisinfect();
                 break;
             case GameState.Equipment:
+                HandleEquipment();
                 break;
             case GameState.Insertion:
+                HandleInsertion();
                 break;
             case GameState.MonitorPatient:
+                HandleMonitoring();
                 break;
             case GameState.CheckEquipment:
+                HandleChecking();
                 break;
             case GameState.Results:
+                HandleResults();
                 break;
         }
 
         OnGameStateChanged?.Invoke(newState);
     }
 
+    private void HandleResults()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void HandleChecking()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void HandleMonitoring()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void HandleInsertion()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void HandleEquipment()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void HandleDisinfect()
+    {
+        if (checkedPC)
+        {
+            ScoreSystem.instance.IncrementScore();
+        }
+        Debug.Log("Current State: " + State);
+        nextState = GameState.Equipment;
+    }
+
+    private void HandlePC()
+    {
+        if (hasWashed)
+        {
+            ScoreSystem.instance.IncrementScore();
+        }
+        Debug.Log("Current State: " + State);
+        nextState = GameState.Disinfect;
+    }
+
     private void HandleWashing()
     {
-        if (checkWaterFlow)
-        {
-            IncrementScore();
-        }
+        Debug.Log("Current State: " + State);
+        nextState = GameState.CheckPC;
     }
 
     private void HandleGameStart()
     {
-        
+        Debug.Log("Current State: " + State);
+        ScoreSystem.instance.ResetScore();
+        tp.TeleporttausStart();
+        UpdateGameState(GameState.WashHands);
     }
 
     private void HandleTutorialRoom()
     {
         
-    }
-
-    /*
-    void Update()
-    {
-        if (!isPlaying)
-        {
-            isPlaying = true;
-            
-        }
-
-        if (checkWaterFlow.isActivated)
-        {
-            handsWashed = true;
-            if (ScoreSystem.instance.score < 1)
-            {
-                IncrementScore();
-            }
-        }
-
-        if (handsWashed && hasCollided.isDisinfected)
-        {
-            platformDisinfected = true;
-            if (ScoreSystem.instance.score < 2)
-            {
-               IncrementScore();
-            }
-        }
-
-        else if (!handsWashed && hasCollided.isDisinfected)
-        {
-            if (ScoreSystem.instance.score == 0)
-            {
-                DecreaseScore();
-            }
-        }
-
-
-    }*/
-
-    public void IncrementScore()
-    {
-        scoreIncremented?.Invoke();
-    }
-
-    public void DecreaseScore()
-    {
-        scoreDecreased?.Invoke();
     }
 
     public enum GameState
@@ -138,7 +144,9 @@ public class GameManager : MonoBehaviour
         Insertion,
         MonitorPatient,
         CheckEquipment,
-        Results
+        Results,
+        AddScore,
+        DecreaseScore
     }
 
 
