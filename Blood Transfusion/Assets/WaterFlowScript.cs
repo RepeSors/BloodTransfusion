@@ -9,8 +9,18 @@ public class WaterFlowScript : MonoBehaviour
     public void WaterGo()
     {
         wateR.SetActive(true);
-        GameManager.instance.hasWashed = true;
-        GameManager.instance.UpdateGameState(GameManager.GameState.CheckPC);
+        if (GameManager.instance.State == GameManager.GameState.WashHands && GameManager.instance.nextState == GameManager.GameState.CheckPC)
+        {
+            GameManager.instance.hasWashed = true;
+            GameManager.instance.UpdateGameState(GameManager.GameState.CheckPC);
+        }
+
+        if (GameManager.instance.State == GameManager.GameState.Disinfect)
+        {
+            GameManager.instance.platformDisinfected = true;
+            GameManager.instance.UpdateGameState(GameManager.GameState.Equipment);
+        }
+        
     }
 
     public void WaterOff()

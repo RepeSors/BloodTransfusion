@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class PC : MonoBehaviour
 {
-
-    private void OnTriggerEnter(Collider other)
+    public void CheckedPC()
     {
-        if (other.gameObject.layer == 6)
-        {
-            GameManager.instance.checkedPC = true;
-            GameManager.instance.UpdateGameState(GameManager.GameState.Disinfect);
-        }
+        GameManager.instance.checkedPC = true;
+        GameManager.instance.UpdateGameState(GameManager.GameState.Disinfect);
     }
 }

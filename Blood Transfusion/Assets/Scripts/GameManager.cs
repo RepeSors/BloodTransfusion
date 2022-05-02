@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public static event Action<GameState> OnGameStateChanged;
     public bool hasWashed;
     public bool checkedPC;
-    bool platformDisinfected;
+    public bool platformDisinfected;
 
     private void Awake()
     {
@@ -91,7 +91,12 @@ public class GameManager : MonoBehaviour
 
     private void HandleEquipment()
     {
-        throw new NotImplementedException();
+        if (platformDisinfected)
+        {
+            ScoreSystem.instance.IncrementScore();
+        }
+        Debug.Log("Current State: " + State);
+        nextState = GameState.Insertion;
     }
 
     private void HandleDisinfect()
