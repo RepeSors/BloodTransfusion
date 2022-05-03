@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     public GameState State;
     public GameState nextState;
+    public GameState previousState;
 
     public static event Action<GameState> OnGameStateChanged;
     public bool hasWashed;
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateGameState(GameState newState)
     {
+        previousState = State;
         State = newState;
 
         switch (newState)

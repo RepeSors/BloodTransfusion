@@ -15444,6 +15444,7 @@ MonoBehaviour:
   hasCollided: {fileID: 1493177817}
   State: 0
   nextState: 0
+  previousState: 0
   hasWashed: 0
   checkedPC: 0
   platformDisinfected: 0
@@ -15504,6 +15505,19 @@ MonoBehaviour:
   _transferHandOnSecondGrab: 0
   _addNewGrabsToFront: 0
   _maxGrabPoints: -1
+--- !u!114 &1152826988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152826985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19a6627e778c1b44f83d6fcc662bc255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vesiEff: {fileID: 1493177813}
 --- !u!4 &1152826990 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9b5ae785246fed649ad5f730fc82a82d, type: 3}
@@ -15523,19 +15537,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -250708282443278876, guid: 9b5ae785246fed649ad5f730fc82a82d, type: 3}
---- !u!114 &1152826992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1152826985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abe043108b63b014e89b11226ee654b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wateR: {fileID: 1493177813}
 --- !u!114 &1152826993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15552,9 +15553,9 @@ MonoBehaviour:
   _whenHover:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1152826992}
-        m_TargetAssemblyTypeName: WaterFlowScript, Assembly-CSharp
-        m_MethodName: WaterGo
+      - m_Target: {fileID: 1152826988}
+        m_TargetAssemblyTypeName: SprayPullo, Assembly-CSharp
+        m_MethodName: SprayOn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15567,9 +15568,9 @@ MonoBehaviour:
   _whenUnhover:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1152826992}
-        m_TargetAssemblyTypeName: WaterFlowScript, Assembly-CSharp
-        m_MethodName: WaterOff
+      - m_Target: {fileID: 1152826988}
+        m_TargetAssemblyTypeName: SprayPullo, Assembly-CSharp
+        m_MethodName: SprayOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15581,34 +15582,10 @@ MonoBehaviour:
         m_CallState: 2
   _whenSelect:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1152826992}
-        m_TargetAssemblyTypeName: WaterFlowScript, Assembly-CSharp
-        m_MethodName: WaterGo
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _whenUnselect:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1152826992}
-        m_TargetAssemblyTypeName: WaterFlowScript, Assembly-CSharp
-        m_MethodName: WaterOff
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _whenInteractorsCountUpdated:
     m_PersistentCalls:
       m_Calls: []

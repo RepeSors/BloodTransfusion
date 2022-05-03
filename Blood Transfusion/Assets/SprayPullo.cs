@@ -7,12 +7,17 @@ public class SprayPullo : MonoBehaviour
     public GameObject vesiEff;
 
 
-    private void OnTriggerEnter(Collider other)
+    public void SprayOn()
     {
         vesiEff.SetActive(true);
+        if (GameManager.instance.State == GameManager.GameState.Disinfect)
+        {
+            GameManager.instance.platformDisinfected = true;
+            GameManager.instance.UpdateGameState(GameManager.GameState.Equipment);
+        }
     }
 
-    private void OnTriggerExit(Collider other)
+    public void SprayOff()
     {
         vesiEff.SetActive(false);
     }

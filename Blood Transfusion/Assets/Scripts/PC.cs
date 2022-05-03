@@ -6,7 +6,10 @@ public class PC : MonoBehaviour
 {
     public void CheckedPC()
     {
-        GameManager.instance.checkedPC = true;
-        GameManager.instance.UpdateGameState(GameManager.GameState.Disinfect);
+        if (GameManager.instance.State == GameManager.GameState.CheckPC)
+        {
+            GameManager.instance.checkedPC = true;
+            GameManager.instance.UpdateGameState(GameManager.GameState.Disinfect);
+        }
     }
 }
