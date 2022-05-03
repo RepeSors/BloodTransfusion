@@ -10,13 +10,9 @@ public class GrabDetection : MonoBehaviour
     public bool isGrabbed;
     public bool insideSnapZone;
     [SerializeField] Rigidbody rb;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (rb.isKinematic && insideSnapZone == false)

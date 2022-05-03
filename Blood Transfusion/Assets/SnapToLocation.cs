@@ -5,11 +5,13 @@ using UnityEngine.Assertions;
 
 public class SnapToLocation : MonoBehaviour
 {
-    private bool grabbed;
+    public bool grabbed;
 
     private bool insideSnapZone;
 
     public bool Snapped;
+
+    public float targetTime = 10f;
 
     public GameObject KiinnikeOsa;
     public GameObject SnapRotationReference;
@@ -34,10 +36,40 @@ public class SnapToLocation : MonoBehaviour
     {
         if (!grabbed && insideSnapZone)
         {
+            KiinnikeOsa.transform.parent = SnapRotationReference.transform;
             KiinnikeOsa.gameObject.transform.position = transform.position;
             KiinnikeOsa.gameObject.transform.rotation = SnapRotationReference.transform.rotation;
-            Snapped = true;
+
         }
+
+        /*if (Snapped == false)
+        {
+            if (!grabbed && insideSnapZone)
+            {
+                KiinnikeOsa.gameObject.transform.position = transform.position;
+                KiinnikeOsa.gameObject.transform.rotation = SnapRotationReference.transform.rotation;
+                targetTime -= Time.deltaTime;
+                if (targetTime <= 0.0f)
+                {
+                    SnapRotationReference.SetActive(true);
+                    Snapped = true;
+                }
+                
+            }
+        }
+        else if(!grabbed && Snapped == true)
+        {
+            Debug.Log("Tää Lähti Käyntiin!");
+            targetTime += Time.deltaTime;
+            if (targetTime >= 20f)
+            {
+                SnapRotationReference.SetActive(false);
+                Snapped = false;
+            }
+            
+            
+        }*/
+
     }
 
 
