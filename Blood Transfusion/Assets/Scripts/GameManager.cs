@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateGameState(GameState.GameStart);
+        UpdateGameState(GameState.TutorialRoom);
     }
 
     public void UpdateGameState(GameState newState)
@@ -137,7 +137,8 @@ public class GameManager : MonoBehaviour
 
     private void HandleTutorialRoom()
     {
-        
+        Debug.Log("Current State: " + State);
+        tp.TeleporttausTutorial();
     }
 
     public enum GameState
@@ -155,6 +156,4 @@ public class GameManager : MonoBehaviour
         AddScore,
         DecreaseScore
     }
-
-
 }
