@@ -28,5 +28,12 @@ public class EquipmentCheck : MonoBehaviour
             GameManager.instance.correctBag = true;
             GameManager.instance.UpdateGameState(GameManager.GameState.Insertion);
         }
+
+        else
+        {
+            GameManager.instance.wrongLine = true;
+            GameManager.instance.wrongBag = true;
+            GameManager.instance.UpdateGameState(GameManager.GameState.Failed);
+        }
     }
 }

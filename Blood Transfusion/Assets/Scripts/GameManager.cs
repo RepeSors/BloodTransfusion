@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public bool correctLine;
     public bool wrongBag;
     public bool wrongLine;
+    public bool hasInserted;
 
     private void Awake()
     {
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateGameState(GameState.TutorialRoom);
+        UpdateGameState(GameState.GameStart);
     }
 
     public void UpdateGameState(GameState newState)
@@ -64,9 +65,6 @@ public class GameManager : MonoBehaviour
             case GameState.MonitorPatient:
                 HandleMonitoring();
                 break;
-            case GameState.CheckEquipment:
-                HandleChecking();
-                break;
             case GameState.Results:
                 HandleResults();
                 break;
@@ -80,7 +78,9 @@ public class GameManager : MonoBehaviour
 
     private void HandleFailed()
     {
-        
+        ScoreSystem.instance.DisplayFailedText();
+        Debug.Log("Current State: " + State);
+        nextState = GameState.Equipment;
     }
 
     private void HandleResults()
@@ -88,14 +88,11 @@ public class GameManager : MonoBehaviour
         throw new NotImplementedException();
     }
 
-    private void HandleChecking()
-    {
-        throw new NotImplementedException();
-    }
-
     private void HandleMonitoring()
     {
-        throw new NotImplementedException();
+        ScoreSystem.instance.IncrementScore();
+        Debug.Log("Current State: " + State);
+        nextState = GameState.MonitorPatient;
     }
 
     private void HandleInsertion()
@@ -165,7 +162,6 @@ public class GameManager : MonoBehaviour
         Equipment,
         Insertion,
         MonitorPatient,
-        CheckEquipment,
         Results,
         Failed
     }

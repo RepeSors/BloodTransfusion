@@ -24,6 +24,7 @@ public class SnapToLocation : MonoBehaviour
         }
     }
 
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.name == KiinnikeOsa.name)

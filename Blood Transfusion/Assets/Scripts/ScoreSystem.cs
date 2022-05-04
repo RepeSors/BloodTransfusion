@@ -9,12 +9,12 @@ public class ScoreSystem : MonoBehaviour
 {
     public static ScoreSystem instance;
     public static int score { get; set; } = 0;
+    public static string failedText { get; set; } = null;
     [SerializeField] private TextMeshProUGUI text;
 
     private void Awake()
     {
-        instance = this;
-        
+        instance = this;       
     }  
 
     public void ResetScore()
@@ -35,8 +35,20 @@ public class ScoreSystem : MonoBehaviour
         DisplayScore();
     }
 
+    public void FailedText()
+    {
+        failedText = "Something went wrong with the equipment";
+    }
+
     public void DisplayScore()
     {
         text.text = score.ToString();
     }
+
+    public void DisplayFailedText()
+    {
+        text.text = failedText;
+    }
+
+
 }
