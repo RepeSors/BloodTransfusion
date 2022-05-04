@@ -39,7 +39,7 @@ public class SnapToLocation : MonoBehaviour
             KiinnikeOsa.transform.parent = SnapRotationReference.transform;
             KiinnikeOsa.gameObject.transform.position = transform.position;
             KiinnikeOsa.gameObject.transform.rotation = SnapRotationReference.transform.rotation;
-
+            Snapped = true;
         }
 
         /*if (Snapped == false)

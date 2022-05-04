@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
     public bool hasWashed;
     public bool checkedPC;
     public bool platformDisinfected;
+    public bool correctBag;
+    public bool correctLine;
+    public bool wrongBag;
+    public bool wrongLine;
 
     private void Awake()
     {
@@ -26,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateGameState(GameState.TutorialRoom);
+        UpdateGameState(GameState.GameStart);
     }
 
     public void UpdateGameState(GameState newState)
@@ -66,9 +70,17 @@ public class GameManager : MonoBehaviour
             case GameState.Results:
                 HandleResults();
                 break;
+            case GameState.Failed:
+                HandleFailed();
+                break;
         }
 
         OnGameStateChanged?.Invoke(newState);
+    }
+
+    private void HandleFailed()
+    {
+        
     }
 
     private void HandleResults()
@@ -88,7 +100,9 @@ public class GameManager : MonoBehaviour
 
     private void HandleInsertion()
     {
-        throw new NotImplementedException();
+        ScoreSystem.instance.IncrementScore();
+        Debug.Log("Current State: " + State);
+        nextState = GameState.MonitorPatient;
     }
 
     private void HandleEquipment()
@@ -153,7 +167,6 @@ public class GameManager : MonoBehaviour
         MonitorPatient,
         CheckEquipment,
         Results,
-        AddScore,
-        DecreaseScore
+        Failed
     }
 }
