@@ -18172,11 +18172,6 @@ Transform:
   m_Father: {fileID: 2099143587}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!1 &1167770626 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1338907542292945799, guid: 4b1f6da8dfa929844a703c38bd3c1be9, type: 3}
-  m_PrefabInstance: {fileID: 2050299851}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1172025275
 GameObject:
   m_ObjectHideFlags: 0
@@ -30136,7 +30131,8 @@ GameObject:
   - component: {fileID: 1792127318}
   - component: {fileID: 1792127317}
   - component: {fileID: 1792127320}
-  m_Layer: 5
+  - component: {fileID: 1792127321}
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30309,7 +30305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5626a0b1dc955a43be59ce7ea116678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pointableCanvas: {fileID: 0}
+  _pointableCanvas: {fileID: 1792127318}
   _suppressWhileDragging: 1
   _whenBeginHighlight:
     m_PersistentCalls:
@@ -30319,7 +30315,19 @@ MonoBehaviour:
       m_Calls: []
   _whenSelectedHovered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1792127321}
+        m_TargetAssemblyTypeName: TutorialCanvas, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _whenSelectedEmpty:
     m_PersistentCalls:
       m_Calls: []
@@ -30329,6 +30337,18 @@ MonoBehaviour:
   _whenUnselectedEmpty:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1792127321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792127311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cdbee27bb03aa14880e606277e495ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1814600574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33281,7 +33301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1062b0f24153f7c40ad93ef6bf452e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentObject: {fileID: 1167770626}
 --- !u!1 &2029836994 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2187641192365427752, guid: 84f7e82b6ffd9c64b94acae40598178e, type: 3}
