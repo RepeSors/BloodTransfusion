@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateGameState(GameState.GameStart);
+        UpdateGameState(GameState.TutorialRoom);
     }
 
     public void UpdateGameState(GameState newState)
