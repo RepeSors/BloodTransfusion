@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
 
     private void HandleFailed()
     {
-        ScoreSystem.instance.DisplayFailedText();
+        Debug.Log("lol v‰‰r‰t vehkeet");
         Debug.Log("Current State: " + State);
         nextState = GameState.Equipment;
     }
@@ -90,14 +90,14 @@ public class GameManager : MonoBehaviour
 
     private void HandleMonitoring()
     {
-        ScoreSystem.instance.IncrementScore();
+        ScoreSystem.instance.IncrementScoreBy2();
         Debug.Log("Current State: " + State);
         nextState = GameState.MonitorPatient;
     }
 
     private void HandleInsertion()
     {
-        ScoreSystem.instance.IncrementScore();
+        ScoreSystem.instance.IncrementScoreBy2();
         Debug.Log("Current State: " + State);
         nextState = GameState.MonitorPatient;
     }
@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
     {
         if (platformDisinfected)
         {
-            ScoreSystem.instance.IncrementScore();
+            ScoreSystem.instance.IncrementScoreBy2();
         }
         Debug.Log("Current State: " + State);
         nextState = GameState.Insertion;
@@ -114,9 +114,14 @@ public class GameManager : MonoBehaviour
 
     private void HandleDisinfect()
     {
-        if (checkedPC)
+        if (previousState == GameState.WashHands)
         {
             ScoreSystem.instance.IncrementScore();
+        }
+
+        else if (previousState == GameState.CheckPC)
+        {
+            ScoreSystem.instance.IncrementScoreBy2();
         }
         Debug.Log("Current State: " + State);
         nextState = GameState.Equipment;
@@ -126,7 +131,7 @@ public class GameManager : MonoBehaviour
     {
         if (hasWashed)
         {
-            ScoreSystem.instance.IncrementScore();
+            ScoreSystem.instance.IncrementScoreBy2();
         }
         Debug.Log("Current State: " + State);
         nextState = GameState.Disinfect;

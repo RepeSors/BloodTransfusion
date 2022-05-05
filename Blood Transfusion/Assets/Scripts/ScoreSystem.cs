@@ -9,8 +9,7 @@ public class ScoreSystem : MonoBehaviour
 {
     public static ScoreSystem instance;
     public static int score { get; set; } = 0;
-    public static string failedText { get; set; } = null;
-    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private TMP_Text text;
 
     private void Awake()
     {
@@ -29,15 +28,16 @@ public class ScoreSystem : MonoBehaviour
         DisplayScore();
     }
 
+    public void IncrementScoreBy2()
+    {
+        score += 2;
+        DisplayScore();
+    }
+
     public void DecreaseScore()
     {
         score--;
         DisplayScore();
-    }
-
-    public void FailedText()
-    {
-        failedText = "Something went wrong with the equipment";
     }
 
     public void DisplayScore()
@@ -45,10 +45,7 @@ public class ScoreSystem : MonoBehaviour
         text.text = score.ToString();
     }
 
-    public void DisplayFailedText()
-    {
-        text.text = failedText;
-    }
+    
 
 
 }
