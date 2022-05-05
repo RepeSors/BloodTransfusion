@@ -21,7 +21,7 @@ public class EquipmentCheck : MonoBehaviour
     }
 
     public void CheckIfCorrect()
-    {
+    {    
         if (thisObject.KiinnikeOsa.CompareTag("CorrectLine") && parentObject.CompareTag("CorrectBag"))
         {
             GameManager.instance.correctLine = true;

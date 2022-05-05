@@ -104,9 +104,14 @@ public class GameManager : MonoBehaviour
 
     private void HandleEquipment()
     {
-        if (platformDisinfected)
+        if (platformDisinfected && previousState != GameState.WashHands)
         {
             ScoreSystem.instance.IncrementScoreBy2();
+        }
+
+        else if (previousState == GameState.WashHands)
+        {
+            ScoreSystem.instance.IncrementScore();
         }
         Debug.Log("Current State: " + State);
         nextState = GameState.Insertion;
@@ -129,7 +134,12 @@ public class GameManager : MonoBehaviour
 
     private void HandlePC()
     {
-        if (hasWashed)
+        if (platformDisinfected)
+        {
+            ScoreSystem.instance.IncrementScore();
+        }
+
+        else if (!platformDisinfected)
         {
             ScoreSystem.instance.IncrementScoreBy2();
         }
