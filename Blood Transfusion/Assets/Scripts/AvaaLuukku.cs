@@ -9,6 +9,7 @@ public class AvaaLuukku : MonoBehaviour
     [SerializeField] private string onAuki = "onAuki";
     [SerializeField] private string onKiinni = "onKiinni";
     public bool kiinni;
+    public Transform luukkuAsento;
 
     public void LuukkuAnimaatio()
     {
