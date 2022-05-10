@@ -32729,10 +32729,10 @@ GameObject:
   - component: {fileID: 1795440618}
   - component: {fileID: 1795440617}
   - component: {fileID: 1795440616}
-  - component: {fileID: 1795440614}
   - component: {fileID: 1795440613}
   - component: {fileID: 1795440612}
   - component: {fileID: 1795440611}
+  - component: {fileID: 1795440615}
   m_Layer: 0
   m_Name: Luukku
   m_TagString: Untagged
@@ -32779,7 +32779,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1795440612}
         m_TargetAssemblyTypeName: AvaaLuukku, Assembly-CSharp
-        m_MethodName: LuukkuAnimaatio
+        m_MethodName: AvaudutaanYhdessa
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -32816,11 +32816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707d5dafe8f598549b5809d2126a3cdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  avaaLuukku: {fileID: 1795440614}
-  onAuki: onAuki
-  onKiinni: onKiinni
-  kiinni: 0
-  luukkuAsento: {fileID: 0}
+  isTDopen: n
 --- !u!114 &1795440613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32843,25 +32839,22 @@ MonoBehaviour:
   _horizontalDragThreshold: 0
   _verticalDragThreshold: 0
   _volumeMask: {fileID: 0}
---- !u!95 &1795440614
-Animator:
-  serializedVersion: 3
+--- !u!54 &1795440615
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795440609}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4bb0c9a2835d59d478e5d65ba222341a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 2
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &1795440616
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32870,7 +32863,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795440609}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
