@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EquipmentHanged : MonoBehaviour
 {
-    private SnapToLocation thisObject;
+    private Oculus.Interaction.SnapToLocation thisObject;
 
     private void Start()
     {
-        thisObject = GetComponent<SnapToLocation>();
+        thisObject = GetComponent<Oculus.Interaction.SnapToLocation>();
     }
     // Update is called once per frame
     void Update()

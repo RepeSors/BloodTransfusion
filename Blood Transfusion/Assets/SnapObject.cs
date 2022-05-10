@@ -21,7 +21,7 @@ public class SnapObject : MonoBehaviour
     {
         grabbed = GetComponent<GrabDetection>().isGrabbed;
 
-        objectSnapped = SnapLocation.GetComponent<SnapToLocation>().Snapped;
+        objectSnapped = SnapLocation.GetComponent<Oculus.Interaction.SnapToLocation>().Snapped;
 
         if (objectSnapped)
         {

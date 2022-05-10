@@ -36,6 +36,8 @@ namespace Oculus.Interaction
         private Vector3 _linearVelocity;
         private Vector3 _angularVelocity;
 
+        public bool grabbed;
+
         protected bool _started = false;
 
         public event Action<Vector3, Vector3> WhenVelocitiesApplied = delegate { };
@@ -132,6 +134,16 @@ namespace Oculus.Interaction
                 _rigidbody.AddForce(_linearVelocity, ForceMode.VelocityChange);
                 _rigidbody.AddTorque(_angularVelocity, ForceMode.VelocityChange);
                 WhenVelocitiesApplied(_linearVelocity, _angularVelocity);
+            }
+
+            if (_isBeingTransformed)
+            {
+                grabbed = true;
+            }
+
+            if (!_isBeingTransformed)
+            {
+                grabbed = false;
             }
         }
 

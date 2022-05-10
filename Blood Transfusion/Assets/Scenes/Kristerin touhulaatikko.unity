@@ -3090,6 +3090,7 @@ MonoBehaviour:
   _grabbable: {fileID: 192937177}
   _rigidbody: {fileID: 192937175}
   _scaleMassWithSize: 1
+  grabbed: 0
 --- !u!114 &192937182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15140,8 +15141,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BloodBagCorrect
       objectReference: {fileID: 0}
+    - target: {fileID: 851833588120331560, guid: df27f566634ee7a47858a0e3a3a90df8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 851833588120331566, guid: df27f566634ee7a47858a0e3a3a90df8, type: 3}
       propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 851833588750415593, guid: df27f566634ee7a47858a0e3a3a90df8, type: 3}
+      propertyPath: targetTime
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 851833588750415593, guid: df27f566634ee7a47858a0e3a3a90df8, type: 3}
@@ -15162,7 +15171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 889719722302085400, guid: df27f566634ee7a47858a0e3a3a90df8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.253
+      value: 2.327
       objectReference: {fileID: 0}
     - target: {fileID: 889719722302085400, guid: df27f566634ee7a47858a0e3a3a90df8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -21695,7 +21704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7849185282294799310, guid: 00911d1b3a250e1408e5e24786d8282c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.711
+      value: 2.971
       objectReference: {fileID: 0}
     - target: {fileID: 7849185282294799310, guid: 00911d1b3a250e1408e5e24786d8282c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -23064,7 +23073,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8144751850165236492, guid: ac9df7aee96d6bd4e97230ba02728641, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.444
+      value: 2.691
       objectReference: {fileID: 0}
     - target: {fileID: 8144751850165236492, guid: ac9df7aee96d6bd4e97230ba02728641, type: 3}
       propertyPath: m_LocalRotation.w
@@ -23092,6 +23101,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8144751850165236492, guid: ac9df7aee96d6bd4e97230ba02728641, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8542556476280968420, guid: ac9df7aee96d6bd4e97230ba02728641, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8812462599481174454, guid: ac9df7aee96d6bd4e97230ba02728641, type: 3}
@@ -35703,7 +35716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 165638489271104727, guid: 7c4d349090b71b348b4b682b39d77dc8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.9
+      value: 3.222
       objectReference: {fileID: 0}
     - target: {fileID: 165638489271104727, guid: 7c4d349090b71b348b4b682b39d77dc8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -36725,6 +36738,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BloodBagCorrect (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 851833588750415593, guid: df27f566634ee7a47858a0e3a3a90df8, type: 3}
+      propertyPath: KiinnikeOsa
+      value: 
+      objectReference: {fileID: 919132149279936129}
     - target: {fileID: 889719722302085400, guid: df27f566634ee7a47858a0e3a3a90df8, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -40077,6 +40094,10 @@ PrefabInstance:
       objectReference: {fileID: 1406025249}
     - target: {fileID: 1603351695435504275, guid: ae100295a129c0942b92ac49eddc5fea, type: 3}
       propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603351695435504277, guid: ae100295a129c0942b92ac49eddc5fea, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1909902338803727391, guid: ae100295a129c0942b92ac49eddc5fea, type: 3}
