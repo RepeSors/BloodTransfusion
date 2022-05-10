@@ -2287,6 +2287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabbed: 0
+  insideSnapZone: 0
   Snapped: 0
   targetTime: 10
   KiinnikeOsa: {fileID: 0}
@@ -5755,6 +5756,36 @@ MonoBehaviour:
   _maxSelectingInteractors: -1
   _collider: {fileID: 418746590}
   _surface: {fileID: 0}
+--- !u!1 &422438410 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 851833588750415508, guid: df27f566634ee7a47858a0e3a3a90df8, type: 3}
+  m_PrefabInstance: {fileID: 2059181935}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &422438412 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 851833588750415593, guid: df27f566634ee7a47858a0e3a3a90df8, type: 3}
+  m_PrefabInstance: {fileID: 2059181935}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422438410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2da50aa4371ed4d8854ecbeec85159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &422438415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422438410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715f635ec703bfd4887205f8eab31cc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentObject: {fileID: 916829714}
+  thisObject: {fileID: 422438412}
 --- !u!1 &426659977
 GameObject:
   m_ObjectHideFlags: 0
@@ -6040,7 +6071,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &437919621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15147,7 +15178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 851833588120331566, guid: df27f566634ee7a47858a0e3a3a90df8, type: 3}
       propertyPath: m_IsKinematic
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 851833588750415593, guid: df27f566634ee7a47858a0e3a3a90df8, type: 3}
       propertyPath: targetTime
@@ -16975,6 +17006,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   _handGrabPoints:
   - {fileID: 915766311}
+--- !u!1 &916829714 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 509817097816753058, guid: df27f566634ee7a47858a0e3a3a90df8, type: 3}
+  m_PrefabInstance: {fileID: 2059181935}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &933940676
 GameObject:
   m_ObjectHideFlags: 0
@@ -19817,6 +19853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabbed: 0
+  insideSnapZone: 0
   Snapped: 0
   targetTime: 10
   KiinnikeOsa: {fileID: 407454999}
@@ -23103,6 +23140,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8542556476280968416, guid: ac9df7aee96d6bd4e97230ba02728641, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8542556476280968420, guid: ac9df7aee96d6bd4e97230ba02728641, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -23244,15 +23285,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 379585919520188858, guid: a3f75cc2c5203c4488bf08966939112f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.179
+      value: -0.257
       objectReference: {fileID: 0}
     - target: {fileID: 379585919520188858, guid: a3f75cc2c5203c4488bf08966939112f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.346
+      value: 1.251
       objectReference: {fileID: 0}
     - target: {fileID: 379585919520188858, guid: a3f75cc2c5203c4488bf08966939112f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.791
+      value: -11.696
       objectReference: {fileID: 0}
     - target: {fileID: 379585919520188858, guid: a3f75cc2c5203c4488bf08966939112f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -34437,6 +34478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabbed: 0
+  insideSnapZone: 0
   Snapped: 0
   targetTime: 2
   KiinnikeOsa: {fileID: 192937173}
@@ -35989,9 +36031,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabbed: 0
+  insideSnapZone: 0
   Snapped: 0
   targetTime: 2
-  KiinnikeOsa: {fileID: 919132148079270537}
+  KiinnikeOsa: {fileID: 916829714}
   SnapRotationReference: {fileID: 2014679870}
 --- !u!65 &2014679873
 BoxCollider:
@@ -36026,6 +36069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1062b0f24153f7c40ad93ef6bf452e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisObject: {fileID: 2014679872}
 --- !u!1 &2029836994 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2187641192365427752, guid: 84f7e82b6ffd9c64b94acae40598178e, type: 3}
@@ -36737,6 +36781,14 @@ PrefabInstance:
     - target: {fileID: 509817097816753058, guid: df27f566634ee7a47858a0e3a3a90df8, type: 3}
       propertyPath: m_Name
       value: BloodBagCorrect (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 509817097816753058, guid: df27f566634ee7a47858a0e3a3a90df8, type: 3}
+      propertyPath: m_TagString
+      value: CorrectBag
+      objectReference: {fileID: 0}
+    - target: {fileID: 851833588120331560, guid: df27f566634ee7a47858a0e3a3a90df8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 851833588750415593, guid: df27f566634ee7a47858a0e3a3a90df8, type: 3}
       propertyPath: KiinnikeOsa
@@ -39486,6 +39538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObject: {fileID: 919132148079270537}
+  thisObject: {fileID: 0}
 --- !u!33 &859064268319854962
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -51325,6 +51378,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8144751850165236492, guid: ac9df7aee96d6bd4e97230ba02728641, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8542556476280968420, guid: ac9df7aee96d6bd4e97230ba02728641, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8812462599481174454, guid: ac9df7aee96d6bd4e97230ba02728641, type: 3}

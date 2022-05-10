@@ -5,12 +5,9 @@ using UnityEngine;
 public class EquipmentCheck : MonoBehaviour
 {
     [SerializeField] GameObject parentObject;
-    private Oculus.Interaction.SnapToLocation thisObject;
+    [SerializeField] Oculus.Interaction.SnapToLocation thisObject;
 
-    private void Start()
-    {
-        thisObject = GetComponent<Oculus.Interaction.SnapToLocation>();
-    }
+    
     // Update is called once per frame
     void Update()
     {

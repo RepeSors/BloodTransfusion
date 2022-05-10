@@ -9,7 +9,7 @@ namespace Oculus.Interaction
     {
         public bool grabbed;
 
-        private bool insideSnapZone;
+        public bool insideSnapZone;
 
         public bool Snapped;
 
@@ -36,18 +36,18 @@ namespace Oculus.Interaction
 
         void SnapObject()
         {
-            targetTime += Time.deltaTime;
+            //targetTime += Time.fixedDeltaTime;
 
-            if (!grabbed && insideSnapZone && !Snapped)
+            if (!grabbed && insideSnapZone)
             {
-                targetTime = 0;
+                //targetTime = 0;
                 KiinnikeOsa.transform.parent = SnapRotationReference.transform;
                 KiinnikeOsa.gameObject.transform.position = transform.position;
                 KiinnikeOsa.gameObject.transform.rotation = SnapRotationReference.transform.rotation;
                 Snapped = true;
             }
 
-            if (grabbed && insideSnapZone && Snapped)
+            /*else if (grabbed && insideSnapZone && Snapped)
             {
                 Debug.Log("Tää Lähti Käyntiin!");
                 if (targetTime >= 2f)
@@ -58,7 +58,7 @@ namespace Oculus.Interaction
                 }
             }
 
-            /*if (Snapped == false)
+            if (Snapped == false)
             {
                 if (!grabbed && insideSnapZone)
                 {
@@ -80,7 +80,7 @@ namespace Oculus.Interaction
 
 
         // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
             grabbed = KiinnikeOsa.GetComponent<PhysicsGrabbable>().grabbed;
             SnapObject();
