@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public bool correctLine;
     public bool wrongBag;
     public bool wrongLine;
+    public bool waitsToGivePoints;
     public bool hasInserted;
 
     private void Awake()
@@ -68,9 +69,13 @@ public class GameManager : MonoBehaviour
             case GameState.Results:
                 HandleResults();
                 break;
+            case GameState.FailedEquipment:
+                HandleFailedEquipment();
+                break;
             case GameState.Failed:
                 HandleFailed();
                 break;
+                
         }
 
         OnGameStateChanged?.Invoke(newState);
@@ -78,9 +83,18 @@ public class GameManager : MonoBehaviour
 
     private void HandleFailed()
     {
+        Debug.Log("Current State: " + State);
+        Debug.Log("HUh mik‰ LusMu");
+        nextState = GameState.WashHands;
+        UpdateGameState(GameState.WashHands);
+    }
+
+    private void HandleFailedEquipment()
+    {
         Debug.Log("lol v‰‰r‰t vehkeet");
         Debug.Log("Current State: " + State);
         nextState = GameState.Equipment;
+        UpdateGameState(GameState.Equipment);
     }
 
     private void HandleResults()
@@ -92,12 +106,19 @@ public class GameManager : MonoBehaviour
     {
         ScoreSystem.instance.IncrementScoreBy2();
         Debug.Log("Current State: " + State);
-        nextState = GameState.MonitorPatient;
+        nextState = GameState.Results;
     }
 
     private void HandleInsertion()
-    {
-        ScoreSystem.instance.IncrementScoreBy2();
+    {   
+        if (wrongBag || wrongLine || previousState != GameState.Equipment || (waitsToGivePoints && (hasWashed || checkedPC || platformDisinfected)))
+        {
+            ScoreSystem.instance.IncrementScore();
+        }
+        else
+        {
+            ScoreSystem.instance.IncrementScoreBy2();
+        }
         Debug.Log("Current State: " + State);
         nextState = GameState.MonitorPatient;
     }
@@ -178,6 +199,7 @@ public class GameManager : MonoBehaviour
         Insertion,
         MonitorPatient,
         Results,
+        FailedEquipment,
         Failed
     }
 }
