@@ -104,6 +104,7 @@ public class GameManager : MonoBehaviour
 
     private void HandleMonitoring()
     {
+        ScoreSystem.instance.IncrementScore();
         ScoreSystem.instance.IncrementScoreBy2();
         Debug.Log("Current State: " + State);
         nextState = GameState.Results;
@@ -111,7 +112,7 @@ public class GameManager : MonoBehaviour
 
     private void HandleInsertion()
     {   
-        if (wrongBag || wrongLine || previousState != GameState.Equipment || (waitsToGivePoints && (hasWashed || checkedPC || platformDisinfected)))
+        if (wrongBag || wrongLine || previousState != GameState.Equipment)
         {
             ScoreSystem.instance.IncrementScore();
         }

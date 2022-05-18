@@ -37,6 +37,4 @@ public class SprayPullo : MonoBehaviour
     {
         vesiEff.SetActive(false);
     }
-
-
 }

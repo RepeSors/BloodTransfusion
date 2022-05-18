@@ -7,8 +7,6 @@ public class EquipmentCheck : MonoBehaviour
     [SerializeField] GameObject parentObject;
     [SerializeField] Oculus.Interaction.SnapToLocation thisObject;
 
-    
-    // Update is called once per frame
     void Update()
     {
         if (GameManager.instance.State == GameManager.GameState.Equipment && thisObject.Snapped)
@@ -20,26 +18,11 @@ public class EquipmentCheck : MonoBehaviour
         {
             EnterFailedState();
         }
-
-        if (GameManager.instance.State != GameManager.GameState.Insertion)
-        {
-            if (GameManager.instance.hasWashed || GameManager.instance.checkedPC || GameManager.instance.platformDisinfected && thisObject.Snapped)
-            {
-                CheckIfCorrect();
-            }
-        }
     }
 
     public void CheckIfCorrect()
     {    
-        if (GameManager.instance.waitsToGivePoints)
-        {
-            GameManager.instance.correctLine = true;
-            GameManager.instance.correctBag = true;
-            GameManager.instance.UpdateGameState(GameManager.GameState.Insertion);
-        }
-
-        else if (thisObject.KiinnikeOsa.CompareTag("CorrectLine") && parentObject.CompareTag("CorrectBag"))
+        if (thisObject.KiinnikeOsa.CompareTag("CorrectLine") && parentObject.CompareTag("CorrectBag"))
         {
             GameManager.instance.correctLine = true;
             GameManager.instance.correctBag = true;

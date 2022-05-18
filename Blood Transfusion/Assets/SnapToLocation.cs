@@ -24,6 +24,12 @@ namespace Oculus.Interaction
             {
                 insideSnapZone = true;
             }
+
+            //Voice line tähän
+            else if (other.gameObject.CompareTag("WrongLine"))
+            {
+
+            }
         }
 
         private void OnTriggerExit(Collider other)

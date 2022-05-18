@@ -11,8 +11,6 @@ public class GrabDetection : MonoBehaviour
     public bool insideSnapZone;
     [SerializeField] Rigidbody rb;
     
-
-    
     void Update()
     {
         if (rb.isKinematic && insideSnapZone == false)
@@ -41,7 +39,6 @@ public class GrabDetection : MonoBehaviour
         rb.isKinematic = true;
         insideSnapZone = false;
     }
-
 }
 
 
