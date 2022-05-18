@@ -39463,6 +39463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisObject: {fileID: 2014679872}
+  tube: {fileID: 1218001052}
 --- !u!1 &2029836994 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2187641192365427752, guid: 84f7e82b6ffd9c64b94acae40598178e, type: 3}
@@ -40434,6 +40435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1951532050}
+  textResult: {fileID: 0}
 --- !u!4 &2086400900
 Transform:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ public class SprayPullo : MonoBehaviour
             ScoreSystem.instance.IncrementScore();
             scoreIncremented = true;
             GameManager.instance.platformDisinfected = true;
-            Debug.Log("vittu sä olet tyhmä");
+            Debug.Log("spraypullo 1");
         }
 
         else if (GameManager.instance.checkedPC && !GameManager.instance.hasWashed && !scoreIncremented)
@@ -23,7 +23,7 @@ public class SprayPullo : MonoBehaviour
             ScoreSystem.instance.IncrementScore();
             scoreIncremented = true;
             GameManager.instance.platformDisinfected = true;
-            Debug.Log("vittu sä olet tyhmä");
+            Debug.Log("spraypullo 1");
         }
 
         else if (GameManager.instance.State == GameManager.GameState.Disinfect)

@@ -25,12 +25,14 @@ public class ScoreSystem : MonoBehaviour
 
     public void IncrementScore()
     {
+        Debug.Log("1 pojo");
         score++;
         DisplayScore();
     }
 
     public void IncrementScoreBy2()
     {
+        Debug.Log("2 pojoo");
         score += 2;
         DisplayScore();
     }

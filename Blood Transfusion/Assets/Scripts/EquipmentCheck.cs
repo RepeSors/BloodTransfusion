@@ -14,12 +14,12 @@ public class EquipmentCheck : MonoBehaviour
             CheckIfCorrect();
         }
 
-        if (GameManager.instance.State != GameManager.GameState.Equipment && thisObject.Snapped)
+        else if (GameManager.instance.State != GameManager.GameState.Equipment && thisObject.Snapped)
         {
             GameManager.instance.waitsToGivePoints = true;
         }
 
-        if (!GameManager.instance.hasWashed && !GameManager.instance.checkedPC && !GameManager.instance.platformDisinfected && thisObject.Snapped)
+        else if (!GameManager.instance.hasWashed && !GameManager.instance.checkedPC && !GameManager.instance.platformDisinfected && thisObject.Snapped)
         {
             EnterFailedState();
         }

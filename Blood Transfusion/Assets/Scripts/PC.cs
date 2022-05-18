@@ -13,7 +13,7 @@ public class PC : MonoBehaviour
             ScoreSystem.instance.IncrementScore();
             scoreIncremented = true;
             GameManager.instance.checkedPC = true;
-            Debug.Log("vittu sä olet tyhmä");
+            Debug.Log("pc 1");
         }
 
         else if (GameManager.instance.platformDisinfected)
@@ -21,6 +21,7 @@ public class PC : MonoBehaviour
             ScoreSystem.instance.IncrementScore();
             scoreIncremented2 = true;
             GameManager.instance.checkedPC = true;
+            Debug.Log("spraypullo 1");
             GameManager.instance.UpdateGameState(GameManager.GameState.Equipment);
         }
 

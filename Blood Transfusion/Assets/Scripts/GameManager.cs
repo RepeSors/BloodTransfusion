@@ -93,14 +93,17 @@ public class GameManager : MonoBehaviour
     {
         if (waitsToGivePoints)
         {
+            Debug.Log("waitstogivepoints 1");
             ScoreSystem.instance.IncrementScore();
         }
+        Debug.Log("results 2");
         ScoreSystem.instance.IncrementScoreBy2();
         tp.TeleporttausTutorialResults();
     }
 
     private void HandleMonitoring()
     {
+        Debug.Log("monitored 2");
         ScoreSystem.instance.IncrementScoreBy2();
         Debug.Log("Current State: " + State);
         nextState = GameState.Results;
@@ -111,9 +114,11 @@ public class GameManager : MonoBehaviour
         if (wrongBag || wrongLine || previousState != GameState.Equipment)
         {
             ScoreSystem.instance.IncrementScore();
+            Debug.Log("insertion 1");
         }
         else
         {
+            Debug.Log("insertion 2");
             ScoreSystem.instance.IncrementScoreBy2();
         }
         Debug.Log("Current State: " + State);
@@ -125,10 +130,12 @@ public class GameManager : MonoBehaviour
         if (platformDisinfected && previousState != GameState.WashHands)
         {
             ScoreSystem.instance.IncrementScoreBy2();
+            Debug.Log("Equipment 2");
         }
 
         else if (previousState == GameState.WashHands)
         {
+            Debug.Log("Equipment 1");
             ScoreSystem.instance.IncrementScore();
         }
         Debug.Log("Current State: " + State);
@@ -140,11 +147,13 @@ public class GameManager : MonoBehaviour
         if (previousState == GameState.WashHands)
         {
             ScoreSystem.instance.IncrementScore();
+            Debug.Log("disinfect 1");
         }
 
         else if (previousState == GameState.CheckPC)
         {
             ScoreSystem.instance.IncrementScoreBy2();
+            Debug.Log("disinfect 2");
         }
         Debug.Log("Current State: " + State);
         nextState = GameState.Equipment;
@@ -155,11 +164,13 @@ public class GameManager : MonoBehaviour
         if (platformDisinfected)
         {
             ScoreSystem.instance.IncrementScore();
+            Debug.Log("pc 1");
         }
 
         else if (!platformDisinfected)
         {
             ScoreSystem.instance.IncrementScoreBy2();
+            Debug.Log("pc 2");
         }
         Debug.Log("Current State: " + State);
         nextState = GameState.Disinfect;
@@ -182,6 +193,7 @@ public class GameManager : MonoBehaviour
     private void HandleTutorialRoom()
     {
         Debug.Log("Current State: " + State);
+        nextState = GameState.GameStart;
         tp.TeleporttausTutorial();
     }
 
