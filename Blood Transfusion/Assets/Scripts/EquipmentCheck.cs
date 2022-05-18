@@ -14,6 +14,11 @@ public class EquipmentCheck : MonoBehaviour
             CheckIfCorrect();
         }
 
+        if (GameManager.instance.State != GameManager.GameState.Equipment && thisObject.Snapped)
+        {
+            GameManager.instance.waitsToGivePoints = true;
+        }
+
         if (!GameManager.instance.hasWashed && !GameManager.instance.checkedPC && !GameManager.instance.platformDisinfected && thisObject.Snapped)
         {
             EnterFailedState();
@@ -21,13 +26,10 @@ public class EquipmentCheck : MonoBehaviour
     }
 
     public void CheckIfCorrect()
-    {    
-        if (thisObject.KiinnikeOsa.CompareTag("CorrectLine") && parentObject.CompareTag("CorrectBag"))
-        {
-            GameManager.instance.correctLine = true;
-            GameManager.instance.correctBag = true;
-            GameManager.instance.UpdateGameState(GameManager.GameState.Insertion);
-        }
+    {
+        GameManager.instance.correctLine = true;
+        GameManager.instance.correctBag = true;
+        GameManager.instance.UpdateGameState(GameManager.GameState.Insertion);
     }
 
     public void EnterFailedState()
