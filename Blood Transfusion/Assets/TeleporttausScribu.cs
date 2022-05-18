@@ -8,7 +8,7 @@ public class TeleporttausScribu : MonoBehaviour
 {
     public bool isAtDestOne = false;
     [SerializeField] public GameObject player_rig;
-    [SerializeField] public GameObject destination, destination2, destination_recovery, destination3, destination4, destination5, destination_start, destination_tutorial, destination_tutorial_lavuaari, destination_tutorial_näyttö, destination_tutorial_pöytä, destination_tutorial_stand;
+    [SerializeField] public GameObject destination, destination2, destination_recovery, destination3, destination4, destination5, destination_start, destination_tutorial, destination_tutorial_lavuaari, destination_tutorial_näyttö, destination_tutorial_pöytä, destination_tutorial_stand, destination_tutorial_results;
     
     void Start()
     {
@@ -88,5 +88,10 @@ public class TeleporttausScribu : MonoBehaviour
         player_rig.transform.rotation = destination_tutorial_stand.transform.rotation;
     }
 
+    public void TeleporttausTutorialResults()
+    {
+        player_rig.transform.position = destination_tutorial_results.transform.position;
+        player_rig.transform.rotation = destination_tutorial_results.transform.rotation;
+    }
 
 }

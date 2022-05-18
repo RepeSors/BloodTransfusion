@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public bool waitsToGivePoints;
     public bool hangedBloodBag;
     public bool checkedDripMachine;
+    public bool monitoredPatient;
 
     private void Awake()
     {
@@ -100,7 +101,7 @@ public class GameManager : MonoBehaviour
 
     private void HandleResults()
     {
-        throw new NotImplementedException();
+        tp.TeleporttausTutorialResults();
     }
 
     private void HandleMonitoring()
