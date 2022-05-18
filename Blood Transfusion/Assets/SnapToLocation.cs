@@ -7,6 +7,10 @@ namespace Oculus.Interaction
 {
     public class SnapToLocation : MonoBehaviour
     {
+        public GameObject VeriKulkee;
+
+        public GameObject TuhoaAsettaessa;
+
         public bool grabbed;
 
         public bool insideSnapZone;
@@ -23,6 +27,8 @@ namespace Oculus.Interaction
             if (other.gameObject.name == KiinnikeOsa.name)
             {
                 insideSnapZone = true;
+                VeriKulkee.SetActive(true);
+                Destroy(TuhoaAsettaessa);
             }
 
             //Voice line tähän
