@@ -8,20 +8,25 @@ public class PC : MonoBehaviour
     public bool scoreIncremented2;
     public void CheckedPC()
     {
-        if (!GameManager.instance.hasWashed && !scoreIncremented)
+        if (!GameManager.instance.hasWashed && !GameManager.instance.platformDisinfected && !scoreIncremented)
         {
             ScoreSystem.instance.IncrementScore();
             scoreIncremented = true;
             GameManager.instance.checkedPC = true;
-            Debug.Log("pc 1");
         }
 
-        else if (GameManager.instance.platformDisinfected)
+        else if (!GameManager.instance.hasWashed && GameManager.instance.platformDisinfected && !scoreIncremented)
         {
             ScoreSystem.instance.IncrementScore();
-            scoreIncremented2 = true;
+            scoreIncremented = true;
             GameManager.instance.checkedPC = true;
-            Debug.Log("spraypullo 1");
+        }
+
+        else if (GameManager.instance.platformDisinfected && !scoreIncremented && GameManager.instance.State == GameManager.GameState.CheckPC)
+        {
+            ScoreSystem.instance.IncrementScore();
+            scoreIncremented = true;
+            GameManager.instance.checkedPC = true;
             GameManager.instance.UpdateGameState(GameManager.GameState.Equipment);
         }
 

@@ -14,16 +14,21 @@ public class SprayPullo : MonoBehaviour
         {
             ScoreSystem.instance.IncrementScore();
             scoreIncremented = true;
-            GameManager.instance.platformDisinfected = true;
-            Debug.Log("spraypullo 1");
+            GameManager.instance.platformDisinfected = true;          
         }
 
         else if (GameManager.instance.checkedPC && !GameManager.instance.hasWashed && !scoreIncremented)
         {
             ScoreSystem.instance.IncrementScore();
             scoreIncremented = true;
-            GameManager.instance.platformDisinfected = true;
-            Debug.Log("spraypullo 1");
+            GameManager.instance.platformDisinfected = true;         
+        }
+
+        else if (!GameManager.instance.checkedPC && GameManager.instance.hasWashed && !scoreIncremented)
+        {
+            ScoreSystem.instance.IncrementScore();
+            scoreIncremented = true;
+            GameManager.instance.platformDisinfected = true;           
         }
 
         else if (GameManager.instance.State == GameManager.GameState.Disinfect)

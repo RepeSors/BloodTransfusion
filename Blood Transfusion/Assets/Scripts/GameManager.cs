@@ -91,11 +91,6 @@ public class GameManager : MonoBehaviour
 
     private void HandleResults()
     {
-        if (waitsToGivePoints)
-        {
-            Debug.Log("waitstogivepoints 1");
-            ScoreSystem.instance.IncrementScore();
-        }
         Debug.Log("results 2");
         ScoreSystem.instance.IncrementScoreBy2();
         tp.TeleporttausTutorialResults();
@@ -111,7 +106,7 @@ public class GameManager : MonoBehaviour
 
     private void HandleInsertion()
     {   
-        if (wrongBag || wrongLine || previousState != GameState.Equipment)
+        if (wrongBag || wrongLine || previousState != GameState.Equipment || waitsToGivePoints)
         {
             ScoreSystem.instance.IncrementScore();
             Debug.Log("insertion 1");
