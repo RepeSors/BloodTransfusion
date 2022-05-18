@@ -101,6 +101,11 @@ public class GameManager : MonoBehaviour
 
     private void HandleResults()
     {
+        if (waitsToGivePoints)
+        {
+            ScoreSystem.instance.IncrementScore();
+        }
+        ScoreSystem.instance.IncrementScoreBy2();
         tp.TeleporttausTutorialResults();
     }
 
