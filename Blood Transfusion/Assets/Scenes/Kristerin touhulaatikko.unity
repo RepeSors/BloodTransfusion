@@ -35730,8 +35730,8 @@ GameObject:
   - component: {fileID: 1792127319}
   - component: {fileID: 1792127318}
   - component: {fileID: 1792127317}
-  - component: {fileID: 1792127320}
   - component: {fileID: 1792127321}
+  - component: {fileID: 1792127320}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -40435,7 +40435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1951532050}
-  textResult: {fileID: 0}
+  textResult: {fileID: 1442619333}
 --- !u!4 &2086400900
 Transform:
   m_ObjectHideFlags: 0
