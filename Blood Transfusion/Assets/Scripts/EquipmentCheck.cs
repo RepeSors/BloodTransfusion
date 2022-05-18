@@ -28,25 +28,6 @@ public class EquipmentCheck : MonoBehaviour
             GameManager.instance.correctBag = true;
             GameManager.instance.UpdateGameState(GameManager.GameState.Insertion);
         }
-
-        else if (thisObject.KiinnikeOsa.CompareTag("CorrectLine") && parentObject.CompareTag("WrongBag"))
-        {
-            GameManager.instance.wrongBag = true;
-            GameManager.instance.UpdateGameState(GameManager.GameState.FailedEquipment);
-        }
-
-        else if (thisObject.KiinnikeOsa.CompareTag("WrongLine") && parentObject.CompareTag("CorrectBag"))
-        {
-            GameManager.instance.wrongLine = true;
-            GameManager.instance.UpdateGameState(GameManager.GameState.FailedEquipment);
-        }
-
-        else
-        {
-            GameManager.instance.wrongLine = true;
-            GameManager.instance.wrongBag = true;
-            GameManager.instance.UpdateGameState(GameManager.GameState.FailedEquipment);
-        }
     }
 
     public void EnterFailedState()

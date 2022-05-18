@@ -34,7 +34,7 @@ namespace Oculus.Interaction
             //Voice line tähän
             else if (other.gameObject.CompareTag("WrongLine"))
             {
-
+                GameManager.instance.wrongLine = true;
             }
         }
 

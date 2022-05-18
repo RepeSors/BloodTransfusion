@@ -23,7 +23,8 @@ public class GameManager : MonoBehaviour
     public bool wrongBag;
     public bool wrongLine;
     public bool waitsToGivePoints;
-    public bool hasInserted;
+    public bool hangedBloodBag;
+    public bool checkedDripMachine;
 
     private void Awake()
     {
@@ -104,7 +105,6 @@ public class GameManager : MonoBehaviour
 
     private void HandleMonitoring()
     {
-        ScoreSystem.instance.IncrementScore();
         ScoreSystem.instance.IncrementScoreBy2();
         Debug.Log("Current State: " + State);
         nextState = GameState.Results;

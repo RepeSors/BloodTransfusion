@@ -12,8 +12,7 @@ public class EquipmentHanged : MonoBehaviour
     {
         if (GameManager.instance.State == GameManager.GameState.Insertion && thisObject.Snapped)
         {
-            GameManager.instance.hasInserted = true;
-            GameManager.instance.UpdateGameState(GameManager.GameState.MonitorPatient);
+            GameManager.instance.hangedBloodBag = true;
         }
     }
 }
