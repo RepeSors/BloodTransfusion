@@ -27,8 +27,12 @@ namespace Oculus.Interaction
             if (other.gameObject.name == KiinnikeOsa.name)
             {
                 insideSnapZone = true;
-                VeriKulkee.SetActive(true);
-                Destroy(TuhoaAsettaessa);
+                if (Snapped == true)
+                {
+                    VeriKulkee.SetActive(true);
+                    Destroy(TuhoaAsettaessa);
+                }
+                
             }
 
             //Voice line tähän

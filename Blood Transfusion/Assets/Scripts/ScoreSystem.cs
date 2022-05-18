@@ -10,6 +10,7 @@ public class ScoreSystem : MonoBehaviour
     public static ScoreSystem instance;
     public static int score { get; set; } = 0;
     [SerializeField] private TMP_Text text;
+    [SerializeField] private TMP_Text textResult;
 
     private void Awake()
     {
@@ -43,6 +44,7 @@ public class ScoreSystem : MonoBehaviour
     public void DisplayScore()
     {
         text.text = score.ToString();
+        textResult.text = score.ToString();
     }
 
     
