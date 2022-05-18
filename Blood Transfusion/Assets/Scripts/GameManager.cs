@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
 
     private void HandleInsertion()
     {   
-        if (wrongBag || wrongLine || previousState != GameState.Equipment || waitsToGivePoints)
+        if (previousState != GameState.Equipment || waitsToGivePoints)
         {
             ScoreSystem.instance.IncrementScore();
             Debug.Log("insertion 1");
@@ -122,7 +122,13 @@ public class GameManager : MonoBehaviour
 
     private void HandleEquipment()
     {
-        if (platformDisinfected && previousState != GameState.WashHands)
+        if (platformDisinfected && previousState == GameState.CheckPC)
+        {
+            Debug.Log("Equipment 1");
+            ScoreSystem.instance.IncrementScore();
+        }
+
+        else if (platformDisinfected && previousState != GameState.WashHands)
         {
             ScoreSystem.instance.IncrementScoreBy2();
             Debug.Log("Equipment 2");

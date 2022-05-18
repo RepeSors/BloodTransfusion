@@ -24,8 +24,6 @@ public class PC : MonoBehaviour
 
         else if (GameManager.instance.platformDisinfected && !scoreIncremented && GameManager.instance.State == GameManager.GameState.CheckPC)
         {
-            ScoreSystem.instance.IncrementScore();
-            scoreIncremented = true;
             GameManager.instance.checkedPC = true;
             GameManager.instance.UpdateGameState(GameManager.GameState.Equipment);
         }
