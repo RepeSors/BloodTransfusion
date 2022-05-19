@@ -28,7 +28,7 @@ public class AvaaLuukku : MonoBehaviour
 
     IEnumerator stopDrawer()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         if (isTDopen == "o")
         {
             isTDopen = "y";
