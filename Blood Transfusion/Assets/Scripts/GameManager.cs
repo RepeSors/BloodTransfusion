@@ -71,6 +71,9 @@ public class GameManager : MonoBehaviour
             case GameState.Results:
                 HandleResults();
                 break;
+            case GameState.FailedEquipment:
+                HandleFailedEquipment();
+                break;
             case GameState.Failed:
                 HandleFailed();
                 break;
@@ -80,11 +83,15 @@ public class GameManager : MonoBehaviour
         OnGameStateChanged?.Invoke(newState);
     }
 
+    private void HandleFailedEquipment()
+    {
+        UpdateGameState(previousState);
+    }
+
     private void HandleFailed()
     {
         //Voice line tähän
         Debug.Log("Current State: " + State);
-        Debug.Log("HUh mikä LusMu");
         nextState = GameState.WashHands;
         UpdateGameState(GameState.WashHands);
     }
@@ -215,7 +222,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Current State: " + State);
         nextState = GameState.GameStart;
-        tp.TeleporttausTutorial();
+        tp.TeleporttausTutorialResults();
     }
 
     public enum GameState
@@ -229,6 +236,7 @@ public class GameManager : MonoBehaviour
         Insertion,
         MonitorPatient,
         Results,
+        FailedEquipment,
         Failed
     }
 }

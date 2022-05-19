@@ -5,8 +5,8 @@ using UnityEngine;
 public class NurseSounds : MonoBehaviour
 {
     [SerializeField] private AudioSource nurse;
-    [SerializeField] private AudioClip tutorial, recovery, recovery2, medicine;
-    private bool medicinePlayed, recovery2Played;
+    [SerializeField] private AudioClip tutorial, recovery, recovery2, medicine, medicine2, failedEquipment, endSpeak;
+    private bool medicinePlayed, medicine2Played, recovery2Played, failedEquipmentPlayed;
 
     private void Awake()
     {
@@ -31,17 +31,35 @@ public class NurseSounds : MonoBehaviour
             nurse.PlayOneShot(recovery);
         }
 
-        if (state == GameManager.GameState.MonitorPatient)
+        if (state == GameManager.GameState.MonitorPatient && !recovery2Played)
         {
+            recovery2Played = true;
             nurse.PlayOneShot(recovery2);
         }
 
         if (state == GameManager.GameState.Disinfect && !medicinePlayed)
         {
+            nurse.Stop();
             medicinePlayed = true;
             nurse.PlayOneShot(medicine);
         }
 
+        if (state == GameManager.GameState.Insertion && !medicine2Played)
+        {
+            medicine2Played = true;
+            nurse.PlayOneShot(medicine2);
+        }
+
+        if (state == GameManager.GameState.FailedEquipment && !failedEquipmentPlayed)
+        {
+            failedEquipmentPlayed = true;
+            nurse.PlayOneShot(failedEquipment);
+        }
+
+        if (state == GameManager.GameState.Results)
+        {
+            nurse.PlayOneShot(endSpeak);
+        }
 
     }
 

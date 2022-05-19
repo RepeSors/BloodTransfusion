@@ -39,6 +39,7 @@ namespace Oculus.Interaction
             else if (other.gameObject.CompareTag("WrongLine"))
             {
                 GameManager.instance.wrongLine = true;
+                GameManager.instance.UpdateGameState(GameManager.GameState.FailedEquipment);
             }
         }
 

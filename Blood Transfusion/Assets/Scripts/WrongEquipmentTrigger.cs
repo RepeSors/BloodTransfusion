@@ -6,16 +6,16 @@ public class WrongEquipmentTrigger : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {   
-        //Voice line tähän
         if (other.gameObject.CompareTag("WrongLine"))
         {
             GameManager.instance.wrongLine = true;
+            GameManager.instance.UpdateGameState(GameManager.GameState.FailedEquipment);
         }
 
-        //Voice line tähän
         else if (other.gameObject.CompareTag("CorrectLine"))
         {
             GameManager.instance.wrongBag = true;
+            GameManager.instance.UpdateGameState(GameManager.GameState.FailedEquipment);
         }
     }
 }

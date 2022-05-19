@@ -11,7 +11,7 @@ public class AvaaLuukku : MonoBehaviour
 
     public void AvaudutaanYhdessa()
     {
-        if (gameObject.name == "LuukkuTwo")
+        if (gameObject.name == "Luukku")
         {
             if (isTDopen == "n")
             {
