@@ -7,9 +7,11 @@ public class AvaaLuukku : MonoBehaviour
     
     public string isTDopen = "n";
 
+    public GameObject luukkuBlood, LuukkuInfusion;
+
     public void AvaudutaanYhdessa()
     {
-        if (gameObject.name == "Luukku")
+        if (gameObject.name == "LuukkuTwo")
         {
             if (isTDopen == "n")
             {
@@ -28,7 +30,7 @@ public class AvaaLuukku : MonoBehaviour
 
     IEnumerator stopDrawer()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         if (isTDopen == "o")
         {
             isTDopen = "y";
