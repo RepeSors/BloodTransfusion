@@ -9,7 +9,12 @@ public class EquipmentCheck : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.instance.State == GameManager.GameState.Equipment && thisObject.Snapped)
+        if (GameManager.instance.State == GameManager.GameState.Disinfect)
+        {
+            UpdateState();
+        }
+
+        else if (GameManager.instance.State == GameManager.GameState.Equipment && thisObject.Snapped)
         {
             CheckIfCorrect();
         }
@@ -22,6 +27,14 @@ public class EquipmentCheck : MonoBehaviour
         else if (!GameManager.instance.hasWashed && !GameManager.instance.checkedPC && !GameManager.instance.platformDisinfected && thisObject.Snapped)
         {
             EnterFailedState();
+        }
+    }
+
+    public void UpdateState()
+    {
+        if (GameManager.instance.waitsToGivePoints && GameManager.instance.hasWashed && GameManager.instance.checkedPC)
+        {
+            GameManager.instance.UpdateGameState(GameManager.GameState.Equipment);
         }
     }
 

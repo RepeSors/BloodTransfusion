@@ -6,6 +6,7 @@ public class NurseSounds : MonoBehaviour
 {
     [SerializeField] private AudioSource nurse;
     [SerializeField] private AudioClip tutorial, recovery, recovery2, medicine;
+    private bool medicinePlayed, recovery2Played;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class NurseSounds : MonoBehaviour
 
         if (state == GameManager.GameState.GameStart)
         {
+            nurse.Stop();
             nurse.PlayOneShot(recovery);
         }
 
@@ -34,9 +36,9 @@ public class NurseSounds : MonoBehaviour
             nurse.PlayOneShot(recovery2);
         }
 
-        //t‰h‰n j‰‰tiin saatana
-        if (GameManager.instance.checkedPC)
+        if (state == GameManager.GameState.Disinfect && !medicinePlayed)
         {
+            medicinePlayed = true;
             nurse.PlayOneShot(medicine);
         }
 

@@ -91,15 +91,33 @@ public class GameManager : MonoBehaviour
 
     private void HandleResults()
     {
-        Debug.Log("results 2");
-        ScoreSystem.instance.IncrementScoreBy2();
+        if (!platformDisinfected)
+        {
+            ScoreSystem.instance.IncrementScore();
+            Debug.Log("results 1");
+        }
+
+        else
+        {
+            Debug.Log("results 2");
+            ScoreSystem.instance.IncrementScoreBy2();
+        }
         tp.TeleporttausTutorialResults();
     }
 
     private void HandleMonitoring()
     {
-        Debug.Log("monitored 2");
-        ScoreSystem.instance.IncrementScoreBy2();
+        if (!platformDisinfected)
+        {
+            ScoreSystem.instance.IncrementScore();
+            Debug.Log("monitored 1");
+        }
+
+        else
+        {
+            Debug.Log("monitored 2");
+            ScoreSystem.instance.IncrementScoreBy2();
+        }
         Debug.Log("Current State: " + State);
         nextState = GameState.Results;
     }
@@ -111,6 +129,7 @@ public class GameManager : MonoBehaviour
             ScoreSystem.instance.IncrementScore();
             Debug.Log("insertion 1");
         }
+
         else
         {
             Debug.Log("insertion 2");
@@ -122,6 +141,7 @@ public class GameManager : MonoBehaviour
 
     private void HandleEquipment()
     {
+
         if (platformDisinfected && previousState == GameState.CheckPC)
         {
             Debug.Log("Equipment 1");
