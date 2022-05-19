@@ -8,6 +8,7 @@ public class Monitor : MonoBehaviour
     {
         if (GameManager.instance.State == GameManager.GameState.MonitorPatient)
         {
+            GameManager.instance.monitoredPatient = true;
             GameManager.instance.UpdateGameState(GameManager.GameState.Results);
         }
     }

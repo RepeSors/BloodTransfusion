@@ -10,7 +10,15 @@ public class SprayPullo : MonoBehaviour
     public void SprayOn()
     {
         vesiEff.SetActive(true);
-        if (!GameManager.instance.checkedPC && !GameManager.instance.hasWashed && !scoreIncremented)
+
+        if (GameManager.instance.State == GameManager.GameState.MonitorPatient || GameManager.instance.State == GameManager.GameState.Insertion)
+        {
+            ScoreSystem.instance.IncrementScore();
+            scoreIncremented = true;
+            GameManager.instance.platformDisinfected = true;
+        }
+
+        else if (!GameManager.instance.checkedPC && !GameManager.instance.hasWashed && !scoreIncremented)
         {
             ScoreSystem.instance.IncrementScore();
             scoreIncremented = true;
