@@ -11,7 +11,7 @@ public class SprayPullo : MonoBehaviour
     {
         vesiEff.SetActive(true);
 
-        if ((GameManager.instance.State == GameManager.GameState.MonitorPatient || GameManager.instance.State == GameManager.GameState.Insertion || GameManager.instance.State == GameManager.GameState.Equipment) && !scoreIncremented)
+        if (GameManager.instance.State == GameManager.GameState.MonitorPatient || GameManager.instance.State == GameManager.GameState.Insertion)
         {
             ScoreSystem.instance.IncrementScore();
             scoreIncremented = true;

@@ -9,9 +9,8 @@ public class EquipmentCheck : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.instance.State == GameManager.GameState.Disinfect && thisObject.Snapped)
+        if (GameManager.instance.State == GameManager.GameState.Disinfect)
         {
-            GameManager.instance.waitsToGivePoints = true;
             UpdateState();
         }
 

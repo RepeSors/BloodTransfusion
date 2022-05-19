@@ -158,7 +158,7 @@ public class GameManager : MonoBehaviour
         else if (platformDisinfected && previousState != GameState.WashHands)
         {
             ScoreSystem.instance.IncrementScoreBy2();
-            Debug.Log("t‰‰ vitun paska 2");
+            Debug.Log("Equipment 2");
         }
 
         else if (previousState == GameState.WashHands)
