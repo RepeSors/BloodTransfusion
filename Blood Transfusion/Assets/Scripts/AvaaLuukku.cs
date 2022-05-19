@@ -6,6 +6,7 @@ public class AvaaLuukku : MonoBehaviour
 {
     
     public string isTDopen = "n";
+    public string isLDopen = "n";
 
     public GameObject luukkuBlood, LuukkuInfusion;
 
@@ -26,6 +27,22 @@ public class AvaaLuukku : MonoBehaviour
                 StartCoroutine(stopDrawer());
             }
         }
+
+        if (gameObject.name == "LuukkuTwo")
+        {
+            if (isLDopen == "n")
+            {
+                GetComponent<Rigidbody>().velocity = new Vector3(0, 0, -1);
+                isLDopen = "o";
+                StartCoroutine(stopDrawerTwo());
+            }
+            else if (isLDopen == "y")
+            {
+                GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 1);
+                isLDopen = "c";
+                StartCoroutine(stopDrawerTwo());
+            }
+        }
     }
 
     IEnumerator stopDrawer()
@@ -38,6 +55,19 @@ public class AvaaLuukku : MonoBehaviour
         if (isTDopen == "c")
         {
             isTDopen = "n";
+        }
+    }
+
+    IEnumerator stopDrawerTwo()
+    {
+        yield return new WaitForSeconds(2);
+        if (isLDopen == "o")
+        {
+            isLDopen = "y";
+        }
+        if (isLDopen == "c")
+        {
+            isLDopen = "n";
         }
     }
 
